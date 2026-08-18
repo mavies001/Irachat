@@ -174,8 +174,8 @@
         <h1>Your AI Study Partner. Online or <span class="accent">Offline</span>.</h1>
         <p>Learn, understand, practice, and explore with an AI built for students—even when you don't have an internet connection.</p>
         <div class="buttons">
-            <a href="#" class="button primary">&#128229; Download IraChat</a>
-            <a href="#" class="button secondary">&#9658; See How It Works</a>
+            <a href="download.html" class="button primary">&#128229; Download IraChat</a>
+            <a href="how-it-works.html" class="button secondary">&#9658; See How It Works</a>
         </div>
     </div>
 
@@ -220,39 +220,11 @@
         <div class="sub-title">Your questions. Your learning. Your AI.</div>
         <div class="callout">Online or offline, IraChat is ready when you are.</div>
         <div class="buttons">
-            <a href="#" class="button primary">&#128229; Download IraChat</a>
-            <a href="#" class="button secondary">Explore IraChat</a>
+            <a href="download.html" class="button primary">&#128229; Download IraChat</a>
+            <a href="how-it-works.html" class="button secondary">Explore IraChat</a>
         </div>
     </div>
 </div>
-
-<!-- JavaScript for Dynamic Interactions -->
-<script>
-    const downloadButtons = document.querySelectorAll('.button.primary');
-
-    downloadButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault();
-            const originalText = this.innerHTML;
-            
-            this.innerHTML = "⏳ Downloading...";
-            this.style.background = "#9333ea";
-            this.style.pointerEvents = "none";
-
-            setTimeout(() => {
-                this.innerHTML = "✅ Download Complete!";
-                this.style.background = "#10b981";
-                
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                    this.style.background = ""; 
-                    this.style.pointerEvents = "auto";
-                }, 3000);
-                
-            }, 2500);
-        });
-    });
-</script>
 
 </body>
 </html>
