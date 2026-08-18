@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IraChat - Intelligence Reimagined</title>
+    <style>
+        :root {
+            --bg-dark: #10121d;
+            --card-dark: #1b1e2e;
+            --text-light: #f8f8f2;
+            --text-muted: #9ca3af;
+            --accent-purple: #c084fc;
+            --border-purple: rgba(192, 132, 252, 0.3);
+            --gradient-button: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
+            --gradient-hover: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            padding: 40px 0;
+        }
+
+        /* --- Buttons --- */
+        .buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .button.primary {
+            background: var(--gradient-button);
+            color: white;
+            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+            border: none;
+        }
+
+        .button.primary:hover {
+            background: var(--gradient-hover);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .button.secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .button.secondary:hover {
+            border-color: var(--accent-purple);
+            background: rgba(192, 132, 252, 0.1);
+        }
+
+        /* --- Hero Section --- */
+        .hero { max-width: 650px; }
+        .hero h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            margin: 0 0 20px 0; 
+            line-height: 1.1; 
+            letter-spacing: -1px;
+        }
+        .hero .accent { color: var(--accent-purple); }
+        .hero p { 
+            color: var(--text-muted); 
+            font-size: 1.1rem; 
+            margin-bottom: 30px; 
+            max-width: 500px;
+        }
+
+        /* --- Data Privacy Card --- */
+        .data-card {
+            background-color: var(--card-dark);
+            border: 1px solid var(--border-purple);
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            align-self: flex-end;
+            max-width: 600px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .card-header .icon { width: 48px; height: 48px; flex-shrink: 0; }
+        .card-header h2 { margin: 0 0 10px 0; font-size: 1.8rem; }
+        .card-header p { color: var(--text-muted); margin: 0; font-size: 0.95rem; }
+
+        .bullet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .bullet { display: flex; align-items: flex-start; gap: 15px; }
+        .bullet-icon { width: 24px; color: var(--accent-purple); flex-shrink: 0; margin-top: 2px; }
+        .bullet-text strong { color: var(--text-light); display: block; margin-bottom: 4px; }
+        .bullet-text div { color: var(--text-muted); font-size: 0.85rem; }
+
+        .footer-note {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            color: var(--accent-purple);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        .footer-note svg { width: 18px; }
+
+        /* --- Footer CTA --- */
+        .footer-cta {
+            background: linear-gradient(to right, #1b1e2e, #10121d);
+            padding: 50px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-cta h2 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 10px 0; }
+        .footer-cta .sub-title { color: var(--text-muted); font-size: 1.2rem; }
+        .footer-cta .callout { color: var(--text-light); font-weight: bold; margin: 20px 0 30px 0; }
+        .footer-cta .buttons { justify-content: center; }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .data-card { align-self: center; padding: 30px 20px; }
+            .card-header { flex-direction: column; text-align: center; align-items: center; }
+            .bullet { flex-direction: column; text-align: center; align-items: center; }
+            .footer-note { justify-content: center; }
+            .footer-cta { padding: 40px 20px; }
+            .hero { text-align: center; margin: 0 auto; }
+            .hero .buttons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Your AI Study Partner. Online or <span class="accent">Offline</span>.</h1>
+        <p>Learn, understand, practice, and explore with an AI built for students—even when you don't have an internet connection.</p>
+        <div class="buttons">
+            <a href="#" class="button primary">&#128229; Download IraChat</a>
+            <a href="#" class="button secondary">&#9658; See How It Works</a>
+        </div>
+    </div>
+
+    <!-- Data Privacy Card -->
+    <div class="data-card">
+        <div class="card-header">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L4.5 5.5V11C4.5 16 7.8 20.6 12 22C16.2 20.6 19.5 16 19.5 11V5.5L12 2Z" stroke="#c084fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+                <h2>Your Data Stays With You.</h2>
+                <p>Your conversations, message history, and learning data stay on your device. We don’t keep your chats on our servers.</p>
+            </div>
+        </div>
+
+        <div class="bullet-grid">
+            <div class="bullet">
+                <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                <div class="bullet-text"><strong>Your Conversations</strong><div>Your message history stays on your device.</div></div>
+            </div>
+            <div class="bullet">
+                <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                <div class="bullet-text"><strong>Your Learning</strong><div>Your study sessions and learning data remains with you.</div></div>
+            </div>
+            <div class="bullet">
+                <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 6L6 19M19 19L6 6"/><circle cx="12" cy="12" r="10"/></svg>
+                <div class="bullet-text"><strong>We Don't Keep Your Chats</strong><div>Your conversations aren't stored on our side.</div></div>
+            </div>
+            <div class="bullet">
+                <svg class="bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <div class="bullet-text"><strong>Private Offline AI</strong><div>Your device can run supported AI features without needing a constant internet connection.</div></div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Your AI. Your Device. Your Data.
+        </div>
+    </div>
+
+    <!-- Footer CTA -->
+    <div class="footer-cta">
+        <h2>Intelligence Reimagined.</h2>
+        <div class="sub-title">Your questions. Your learning. Your AI.</div>
+        <div class="callout">Online or offline, IraChat is ready when you are.</div>
+        <div class="buttons">
+            <a href="#" class="button primary">&#128229; Download IraChat</a>
+            <a href="#" class="button secondary">Explore IraChat</a>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Dynamic Interactions -->
+<script>
+    const downloadButtons = document.querySelectorAll('.button.primary');
+
+    downloadButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            const originalText = this.innerHTML;
+            
+            this.innerHTML = "⏳ Downloading...";
+            this.style.background = "#9333ea";
+            this.style.pointerEvents = "none";
+
+            setTimeout(() => {
+                this.innerHTML = "✅ Download Complete!";
+                this.style.background = "#10b981";
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.background = ""; 
+                    this.style.pointerEvents = "auto";
+                }, 3000);
+                
+            }, 2500);
+        });
+    });
+</script>
+
+</body>
+</html>
