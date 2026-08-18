@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - IraChat</title>
+    <style>
+        :root {
+            --bg-dark: #10121d;
+            --card-dark: #1b1e2e;
+            --text-light: #f8f8f2;
+            --text-muted: #9ca3af;
+            --accent-purple: #c084fc;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 700px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        h1 { font-size: 2.5rem; margin: 0; }
+        .accent { color: var(--accent-purple); }
+        .step-card {
+            background-color: var(--card-dark);
+            border: 1px solid rgba(192, 132, 252, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .step-card h3 { margin-top: 0; color: var(--accent-purple); font-size: 1.3rem; }
+        .step-card p { color: var(--text-muted); margin-bottom: 0; }
+        .back-link { color: var(--accent-purple); text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1>How <span class="accent">IraChat</span> Works</h1>
+        </div>
+        
+        <div class="step-card">
+            <h3>1. Local Model Execution</h3>
+            <p>IraChat leverages lightweight optimized language models that run locally using your device's hardware computation capabilities, bypassing cloud servers entirely.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>2. Zero Data Transmission</h3>
+            <p>Because processing happens completely on-device, your personal study habits, notes, and prompts never get sent over the internet or logged anywhere.</p>
+        </div>
+
+        <div class="step-card">
+            <h3>3. Seamless Offline Support</h3>
+            <p>Lost connection in class or on the move? IraChat keeps working smoothly without skipping a beat, ensuring your productivity is uninterrupted.</p>
+        </div>
+    </div>
+</body>
+</html>
