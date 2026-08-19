@@ -1,73 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download IraChat - IraChat</title>
-    <style>
-        :root {
-            --bg-dark: #10121d;
-            --card-dark: #1b1e2e;
-            --text-light: #f8f8f2;
-            --text-muted: #9ca3af;
-            --accent-purple: #c084fc;
-            --gradient-button: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Download IraChat - IraChat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#7dd3fc",
+                        "primary-fixed-dim": "#93c5fd",
+                        "on-primary": "#00305c",
+                        "on-secondary-fixed-variant": "#3c475a",
+                        "surface-card": "rgba(30, 41, 59, 0.5)",
+                        "outline-variant": "#43505f",
+                        "surface-dim": "#0b1326",
+                        "glow-purple": "rgba(56, 145, 247, 0.35)",
+                        "secondary-fixed-dim": "#bcc7de",
+                        "text-muted": "#94A3B8",
+                        "surface-container-high": "#222a3d",
+                        "surface-container": "#171f33",
+                        "on-primary-fixed": "#00192e",
+                        "primary-fixed": "#dbeafe",
+                        "secondary-container": "#3e495d",
+                        "outline": "#8d9aa8",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "on-background": "#dae2fd",
+                        "secondary-fixed": "#d8e3fb",
+                        "on-tertiary": "#00293d",
+                        "on-secondary": "#263143",
+                        "primary": "#5eb1ff",
+                        "secondary": "#bcc7de",
+                        "inverse-surface": "#dae2fd",
+                        "inverse-on-surface": "#283044",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#2d3449",
+                        "surface-container-lowest": "#060e20",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#7dd3fc",
+                        "border-glass": "rgba(255, 255, 255, 0.1)",
+                        "tertiary-fixed": "#dbeafe",
+                        "surface-container-low": "#131b2e",
+                        "on-secondary-container": "#aeb9d0",
+                        "on-secondary-fixed": "#111c2d",
+                        "surface-tint": "#5eb1ff",
+                        "background": "#0b1326",
+                        "on-primary-fixed-variant": "#0369a1",
+                        "on-primary-container": "#001e3c",
+                        "surface-bright": "#31394d",
+                        "tertiary-container": "#2563eb",
+                        "on-tertiary-container": "#001c3d",
+                        "on-tertiary-fixed": "#001c3d",
+                        "surface": "#0b1326",
+                        "on-surface-variant": "#c2ced9",
+                        "surface-variant": "#2d3449",
+                        "inverse-primary": "#0072e5",
+                        "on-surface": "#dae2fd",
+                        "primary-container": "#2563eb",
+                        "on-tertiary-fixed-variant": "#0c4a92"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "section-gap": "120px",
+                        "component-gap": "12px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-bold": ["Inter"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }]
+                    }
+                }
+            }
         }
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background-color: var(--card-dark);
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        .btn-glow:hover {
+            box-shadow: 0 0 15px rgba(56, 145, 247, 0.4);
         }
-        h1 { font-size: 2.5rem; margin-top: 0; }
-        .accent { color: var(--accent-purple); }
-        p { color: var(--text-muted); margin-bottom: 30px; }
-        .button {
-            display: inline-block;
-            background: var(--gradient-button);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        .fluid-display {
+            font-size: clamp(2rem, 5.5vw + 0.5rem, 3.5rem);
+            line-height: 1.1;
         }
-        .back-link { display: block; margin-top: 25px; color: var(--accent-purple); text-decoration: none; }
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        #mobile-menu.open {
+            max-height: 320px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
+        #download-btn {
+            transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+        }
+        #download-btn:active {
+            transform: scale(0.97);
+        }
+        #download-btn.success {
+            background-image: none !important;
+            background-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.45);
+        }
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Get <span class="accent">IraChat</span></h1>
-        <p>Ready to experience private, offline-capable AI on your device? Download the latest release below.</p>
-        <a href="#" class="button" id="real-download-btn">📥 Download for Android (.apk)</a>
-        <a href="index.html" class="back-link">← Back to Home</a>
-    </div>
-
-    <script>
-        const dlBtn = document.getElementById('real-download-btn');
-        dlBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            dlBtn.innerHTML = "⏳ Preparing download...";
-            setTimeout(() => {
-                dlBtn.innerHTML = "✅ Download Started!";
-                dlBtn.style.background = "#10b981";
-            }, 1500);
+<body class="bg-background text-on-surface font-body-md min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl">
+<div class="flex justify-between items-center h-16 px-4 sm:px-gutter max-w-container-max mx-auto">
+<a class="flex items-center gap-2.5" href="index.html">
+<img alt="IraChat logo" class="h-8 w-8 rounded-lg object-cover" src="https://iili.io/CLSETUg.jpg"/>
+<div class="text-headline-sm font-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">IraChat</div>
+</a>
+<div class="hidden md:flex space-x-6 items-center">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors text-label-bold font-label-bold cursor-pointer active:scale-95 hover:opacity-80 duration-200" href="index.html#features">Features</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors text-label-bold font-label-bold cursor-pointer active:scale-95 hover:opacity-80 duration-200" href="how-it-works.html">How it Works</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1 text-label-bold font-label-bold cursor-pointer active:scale-95 transition-transform hover:opacity-80 duration-200" href="download.html">Download</a>
+</div>
+<button class="bg-gradient-to-r from-primary to-inverse-primary text-on-primary-fixed font-label-bold text-label-bold px-6 py-2 rounded-full shadow-lg shadow-glow-purple/20 btn-glow transition-all duration-300 hidden md:block border-t border-white/20">
+                Get Started
+            </button>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu" class="md:hidden -mr-2 p-2 rounded-full text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" id="menu-toggle">
+<span class="material-symbols-outlined hamburger-icon block transition-transform duration-200" id="menu-icon">menu</span>
+</button>
+</div>
+<!-- Mobile menu panel -->
+<div class="md:hidden bg-surface/95 backdrop-blur-xl" id="mobile-menu">
+<div class="flex flex-col px-4 py-4 gap-1 max-w-container-max mx-auto">
+<a class="text-on-surface-variant text-body-lg font-label-bold py-3 border-b border-glass" href="index.html#features">Features</a>
+<a class="text-on-surface-variant text-body-lg font-label-bold py-3 border-b border-glass" href="how-it-works.html">How it Works</a>
+<a class="text-on-surface text-body-lg font-label-bold py-3" href="download.html">Download</a>
+<button class="mt-3 w-full bg-gradient-to-r from-primary to-inverse-primary text-on-primary-fixed font-label-bold text-label-bold px-6 py-3 rounded-full shadow-lg shadow-glow-purple/20 border-t border-white/20">
+                    Get Started
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-16 min-h-screen flex items-center justify-center px-4 sm:px-gutter">
+<section class="relative w-full max-w-xl py-16 sm:py-24">
+<div class="absolute left-1/2 -translate-x-1/2 top-0 w-[26rem] h-[26rem] bg-primary-container rounded-full mix-blend-screen filter blur-[130px] opacity-20 -z-10"></div>
+<div class="glass-panel rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent"></div>
+<div class="relative z-10">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-inverse-primary flex items-center justify-center mx-auto mb-6 shadow-lg shadow-glow-purple/20 border-t border-white/20">
+<span class="material-symbols-outlined text-3xl text-on-primary-fixed">bolt</span>
+</div>
+<h1 class="text-3xl sm:text-headline-md font-headline-md text-on-surface mb-3">
+                        Get <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">IraChat</span>
+                    </h1>
+<p class="text-sm sm:text-body-lg font-body-lg text-text-muted max-w-sm mx-auto mb-8">
+                        Ready to experience private, offline-capable AI on your device? Download the latest release below.
+                    </p>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-inverse-primary text-on-primary-fixed font-label-bold text-label-bold px-8 py-3.5 rounded-full shadow-lg shadow-glow-purple/20 btn-glow border-t border-white/20" id="download-btn">
+<span class="material-symbols-outlined" id="download-icon">download</span>
+<span id="download-label">Download for Android (.apk)</span>
+</button>
+<p class="text-label-sm font-label-sm text-text-muted mt-4">v1.4.2 · 48 MB · Requires Android 9+</p>
+<a class="inline-flex items-center gap-1.5 text-primary dark:text-primary-fixed-dim text-label-bold font-label-bold hover:opacity-80 transition-opacity mt-8" href="index.html">
+<span class="material-symbols-outlined text-lg">arrow_back</span>
+                        Back to Home
+                    </a>
+</div>
+</div>
+<!-- Trust row -->
+<div class="flex items-center justify-center gap-6 mt-8 flex-wrap">
+<div class="flex items-center gap-1.5 text-text-muted text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-base text-tertiary">lock</span>
+                    No account required
+                </div>
+<div class="flex items-center gap-1.5 text-text-muted text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-base text-tertiary">cloud_off</span>
+                    Works offline
+                </div>
+<div class="flex items-center gap-1.5 text-text-muted text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-base text-tertiary">verified</span>
+                    Open source
+                </div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-glass bg-surface-container-lowest dark:bg-surface-container-lowest text-primary dark:text-primary-fixed-dim">
+<div class="flex flex-col md:flex-row justify-between items-center py-gutter px-4 sm:px-gutter max-w-container-max mx-auto gap-4 text-center md:text-left">
+<div class="text-label-bold font-headline-sm text-primary text-sm sm:text-base">
+                © 2024 IraChat. Built for private intelligence.
+            </div>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="text-sm sm:text-body-md font-body-md text-text-muted hover:text-primary transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="text-sm sm:text-body-md font-body-md text-text-muted hover:text-primary transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="text-sm sm:text-body-md font-body-md text-text-muted hover:text-primary transition-colors cursor-pointer" href="#">Security</a>
+<a class="text-sm sm:text-body-md font-body-md text-text-muted hover:text-primary transition-colors cursor-pointer" href="#">GitHub</a>
+</div>
+</div>
+</footer>
+<script>
+    // Mobile menu
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        icon.textContent = isOpen ? 'close' : 'menu';
+    });
+    menu.querySelectorAll('a, button').forEach((el) => {
+        el.addEventListener('click', () => {
+            menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+            icon.textContent = 'menu';
         });
-    </script>
+    });
+
+    // Simulated download flow
+    const dlBtn = document.getElementById('download-btn');
+    const dlIcon = document.getElementById('download-icon');
+    const dlLabel = document.getElementById('download-label');
+    dlBtn.addEventListener('click', () => {
+        if (dlBtn.disabled) return;
+        dlBtn.disabled = true;
+        dlIcon.textContent = 'progress_activity';
+        dlIcon.classList.add('spin');
+        dlLabel.textContent = 'Preparing download...';
+        setTimeout(() => {
+            dlIcon.classList.remove('spin');
+            dlIcon.textContent = 'check_circle';
+            dlLabel.textContent = 'Download Started!';
+            dlBtn.classList.add('success');
+        }, 1500);
+    });
+</script>
 </body>
 </html>
-
